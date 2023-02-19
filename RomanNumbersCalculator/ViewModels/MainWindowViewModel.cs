@@ -144,6 +144,11 @@ namespace RomanNumbersCalculator.ViewModels
                     break;
                 case "CE":
                     Equation = null;
+                    ch.Clear();
+                    op.Clear();
+                    a = null;
+                    pa = null;
+                    fladZapretMainos = false;
                     break;
                 case "=":
                     a = pa;

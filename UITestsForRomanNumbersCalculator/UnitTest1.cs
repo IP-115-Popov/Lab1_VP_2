@@ -18,11 +18,13 @@ namespace UITestsForRomanNumbersCalculator
             string? rez1 = "I";
 
             await Task.Delay(100);
-
+            var buttonClin = mainWindow.GetVisualDescendants().OfType<Button>().First(b => b.Name == "ButtonClin");
             var buttonOne = mainWindow.GetVisualDescendants().OfType<Button>().First(b => b.Name == "ButtonOne");
             var textBox = mainWindow.GetVisualDescendants().OfType<TextBox>().First();
             textBox.Text = null;
 
+            buttonClin.Command.Execute(buttonClin.CommandParameter);
+            await Task.Delay(50);
             buttonOne.Command.Execute(buttonOne.CommandParameter);
             await Task.Delay(50);
 
@@ -63,18 +65,20 @@ namespace UITestsForRomanNumbersCalculator
 
             var buttonHandred = mainWindow.GetVisualDescendants().OfType<Button>().First(b => b.Name == "ButtonHandred");
             var buttonPlas = mainWindow.GetVisualDescendants().OfType<Button>().First(b => b.Name == "ButtonPlas");
-            //var button = mainWindow.GetVisualDescendants().OfType<Button>().First(b => b.Name == "Button");
+            var buttonClin = mainWindow.GetVisualDescendants().OfType<Button>().First(b => b.Name == "ButtonClin");
 
             var textBox = mainWindow.GetVisualDescendants().OfType<TextBox>().First();
             textBox.Text = null;
+            buttonClin.Command.Execute(buttonClin.CommandParameter);
+            await Task.Delay(50);
 
             buttonHandred.Command.Execute(buttonHandred.CommandParameter);
-            await Task.Delay(500);
+            await Task.Delay(50);
             buttonPlas.Command.Execute(buttonPlas.CommandParameter);
-            await Task.Delay(500);
+            await Task.Delay(50);
             buttonHandred.Command.Execute(buttonHandred.CommandParameter);
-            await Task.Delay(500);
-
+            await Task.Delay(50);
+            
             var textBoxText = textBox.Text as string;
 
             Assert.True(rez3 == textBoxText);
@@ -93,18 +97,21 @@ namespace UITestsForRomanNumbersCalculator
             var buttonHandred = mainWindow.GetVisualDescendants().OfType<Button>().First(b => b.Name == "ButtonHandred");
             var buttonPlas = mainWindow.GetVisualDescendants().OfType<Button>().First(b => b.Name == "ButtonPlas");
             var buttonEquals = mainWindow.GetVisualDescendants().OfType<Button>().First(b => b.Name == "ButtonEquals");
+            var buttonClin = mainWindow.GetVisualDescendants().OfType<Button>().First(b => b.Name == "ButtonClin");
 
             var textBox = mainWindow.GetVisualDescendants().OfType<TextBox>().First();
             textBox.Text = null;
+            buttonClin.Command.Execute(buttonClin.CommandParameter);
+            await Task.Delay(50);
 
             buttonHandred.Command.Execute(buttonHandred.CommandParameter);
-            await Task.Delay(500);
+            await Task.Delay(50);
             buttonPlas.Command.Execute(buttonPlas.CommandParameter);
-            await Task.Delay(500);
+            await Task.Delay(50);
             buttonHandred.Command.Execute(buttonHandred.CommandParameter);
-            await Task.Delay(500);
+            await Task.Delay(50);
             buttonEquals.Command.Execute(buttonEquals.CommandParameter);
-            await Task.Delay(500);
+            await Task.Delay(50);
 
             var textBoxText = textBox.Text as string;
 
@@ -124,22 +131,59 @@ namespace UITestsForRomanNumbersCalculator
             var buttonHandred = mainWindow.GetVisualDescendants().OfType<Button>().First(b => b.Name == "ButtonHandred");
             var buttonMinus = mainWindow.GetVisualDescendants().OfType<Button>().First(b => b.Name == "ButtonMinus");
             var buttonEquals = mainWindow.GetVisualDescendants().OfType<Button>().First(b => b.Name == "ButtonEquals");
+            var buttonClin = mainWindow.GetVisualDescendants().OfType<Button>().First(b => b.Name == "ButtonClin");
 
             var textBox = mainWindow.GetVisualDescendants().OfType<TextBox>().First();
             textBox.Text = null;
+            buttonClin.Command.Execute(buttonClin.CommandParameter);
+            await Task.Delay(50);
 
             buttonHandred.Command.Execute(buttonHandred.CommandParameter);
-            await Task.Delay(500);
+            await Task.Delay(50);
             buttonMinus.Command.Execute(buttonMinus.CommandParameter);
-            await Task.Delay(500);
+            await Task.Delay(50);
             buttonHandred.Command.Execute(buttonHandred.CommandParameter);
-            await Task.Delay(500);
+            await Task.Delay(50);
             buttonEquals.Command.Execute(buttonEquals.CommandParameter);
-            await Task.Delay(500);
+            await Task.Delay(50);
 
             var textBoxText = textBox.Text as string;
 
             Assert.True(rez5 == textBoxText);
+
+        }
+        [Fact]
+        public async void TestMultiply()
+        {
+            var app = AvaloniaApp.GetApp();
+            var mainWindow = AvaloniaApp.GetMainWindow();
+
+            string? rez6 = "2500";
+
+            await Task.Delay(100);
+
+            var buttonFifty = mainWindow.GetVisualDescendants().OfType<Button>().First(b => b.Name == "ButtonFifty");
+            var buttonMultiply = mainWindow.GetVisualDescendants().OfType<Button>().First(b => b.Name == "ButtonMultiply");
+            var buttonEquals = mainWindow.GetVisualDescendants().OfType<Button>().First(b => b.Name == "ButtonEquals");
+            var buttonClin = mainWindow.GetVisualDescendants().OfType<Button>().First(b => b.Name == "ButtonClin");
+
+            var textBox = mainWindow.GetVisualDescendants().OfType<TextBox>().First();
+            textBox.Text = null;
+            buttonClin.Command.Execute(buttonClin.CommandParameter);
+            await Task.Delay(50);
+
+            buttonFifty.Command.Execute(buttonFifty.CommandParameter);
+            await Task.Delay(50);
+            buttonMultiply.Command.Execute(buttonMultiply.CommandParameter);
+            await Task.Delay(50);
+            buttonFifty.Command.Execute(buttonFifty.CommandParameter);
+            await Task.Delay(50);
+            buttonEquals.Command.Execute(buttonEquals.CommandParameter);
+            await Task.Delay(50);
+
+            var textBoxText = textBox.Text as string;
+
+            Assert.True(rez6 == textBoxText);
 
         }
     }
