@@ -15,7 +15,7 @@ namespace UITestsForRomanNumbersCalculator
             var app = AvaloniaApp.GetApp();
             var mainWindow = AvaloniaApp.GetMainWindow();
 
-            string? c = "I";
+            string? rez1 = "I";
 
             await Task.Delay(100);
 
@@ -27,7 +27,7 @@ namespace UITestsForRomanNumbersCalculator
             await Task.Delay(50);
 
             var textBoxText = textBox.Text as string;
-            Assert.True(c == textBoxText);
+            Assert.True(rez1 == textBoxText);
         }
         [Fact]
         public async void Test2()
@@ -35,7 +35,7 @@ namespace UITestsForRomanNumbersCalculator
             var app = AvaloniaApp.GetApp();
             var mainWindow = AvaloniaApp.GetMainWindow();
 
-            string? cc = null;
+            string? rez2 = null;
 
             await Task.Delay(100);
 
@@ -49,7 +49,7 @@ namespace UITestsForRomanNumbersCalculator
 
             var textBoxText = textBox.Text as string;
 
-            Assert.True(cc == textBoxText);
+            Assert.True(rez2 == textBoxText);
         }
         [Fact]
         public async void Test3()
@@ -57,7 +57,7 @@ namespace UITestsForRomanNumbersCalculator
             var app = AvaloniaApp.GetApp();
             var mainWindow = AvaloniaApp.GetMainWindow();
 
-            string? c3 = "C+C";
+            string? rez3 = "C+C";
 
             await Task.Delay(100);
 
@@ -77,7 +77,7 @@ namespace UITestsForRomanNumbersCalculator
 
             var textBoxText = textBox.Text as string;
 
-            Assert.True(c3 == textBoxText);
+            Assert.True(rez3 == textBoxText);
 
         }
         [Fact]
@@ -86,7 +86,7 @@ namespace UITestsForRomanNumbersCalculator
             var app = AvaloniaApp.GetApp();
             var mainWindow = AvaloniaApp.GetMainWindow();
 
-            string? c3 = "200";
+            string? rez4 = "200";
 
             await Task.Delay(100);
 
@@ -108,7 +108,38 @@ namespace UITestsForRomanNumbersCalculator
 
             var textBoxText = textBox.Text as string;
 
-            Assert.True(c3 == textBoxText);
+            Assert.True(rez4 == textBoxText);
+
+        }
+        [Fact]
+        public async void TestMinus()
+        {
+            var app = AvaloniaApp.GetApp();
+            var mainWindow = AvaloniaApp.GetMainWindow();
+
+            string? rez5 = "0";
+
+            await Task.Delay(100);
+
+            var buttonHandred = mainWindow.GetVisualDescendants().OfType<Button>().First(b => b.Name == "ButtonHandred");
+            var buttonMinus = mainWindow.GetVisualDescendants().OfType<Button>().First(b => b.Name == "ButtonMinus");
+            var buttonEquals = mainWindow.GetVisualDescendants().OfType<Button>().First(b => b.Name == "ButtonEquals");
+
+            var textBox = mainWindow.GetVisualDescendants().OfType<TextBox>().First();
+            textBox.Text = null;
+
+            buttonHandred.Command.Execute(buttonHandred.CommandParameter);
+            await Task.Delay(500);
+            buttonMinus.Command.Execute(buttonMinus.CommandParameter);
+            await Task.Delay(500);
+            buttonHandred.Command.Execute(buttonHandred.CommandParameter);
+            await Task.Delay(500);
+            buttonEquals.Command.Execute(buttonEquals.CommandParameter);
+            await Task.Delay(500);
+
+            var textBoxText = textBox.Text as string;
+
+            Assert.True(rez5 == textBoxText);
 
         }
     }
