@@ -57,7 +57,7 @@ namespace UITestsForRomanNumbersCalculator
             var app = AvaloniaApp.GetApp();
             var mainWindow = AvaloniaApp.GetMainWindow();
 
-            string? c3 = "CC";
+            string? c3 = "C+C";
 
             await Task.Delay(100);
 
@@ -70,7 +70,40 @@ namespace UITestsForRomanNumbersCalculator
 
             buttonHandred.Command.Execute(buttonHandred.CommandParameter);
             await Task.Delay(500);
+            buttonPlas.Command.Execute(buttonPlas.CommandParameter);
+            await Task.Delay(500);
             buttonHandred.Command.Execute(buttonHandred.CommandParameter);
+            await Task.Delay(500);
+
+            var textBoxText = textBox.Text as string;
+
+            Assert.True(c3 == textBoxText);
+
+        }
+        [Fact]
+        public async void TestSum()
+        {
+            var app = AvaloniaApp.GetApp();
+            var mainWindow = AvaloniaApp.GetMainWindow();
+
+            string? c3 = "200";
+
+            await Task.Delay(100);
+
+            var buttonHandred = mainWindow.GetVisualDescendants().OfType<Button>().First(b => b.Name == "ButtonHandred");
+            var buttonPlas = mainWindow.GetVisualDescendants().OfType<Button>().First(b => b.Name == "ButtonPlas");
+            var buttonEquals = mainWindow.GetVisualDescendants().OfType<Button>().First(b => b.Name == "ButtonEquals");
+
+            var textBox = mainWindow.GetVisualDescendants().OfType<TextBox>().First();
+            textBox.Text = null;
+
+            buttonHandred.Command.Execute(buttonHandred.CommandParameter);
+            await Task.Delay(500);
+            buttonPlas.Command.Execute(buttonPlas.CommandParameter);
+            await Task.Delay(500);
+            buttonHandred.Command.Execute(buttonHandred.CommandParameter);
+            await Task.Delay(500);
+            buttonEquals.Command.Execute(buttonEquals.CommandParameter);
             await Task.Delay(500);
 
             var textBoxText = textBox.Text as string;
