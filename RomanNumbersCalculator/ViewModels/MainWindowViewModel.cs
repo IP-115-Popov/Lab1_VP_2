@@ -85,6 +85,7 @@ namespace RomanNumbersCalculator.ViewModels
         private string? ConvertIntToRoman(int? ab)
         {
             string? rez = null;
+            if (ab == 0) return "nulla";
             while (ab > 0)
             {
                 if (ab - 1000 >= 0)

@@ -90,7 +90,7 @@ namespace UITestsForRomanNumbersCalculator
             var app = AvaloniaApp.GetApp();
             var mainWindow = AvaloniaApp.GetMainWindow();
 
-            string? rez4 = "200";
+            string? rez4 = "CC";
 
             await Task.Delay(100);
 
@@ -124,7 +124,7 @@ namespace UITestsForRomanNumbersCalculator
             var app = AvaloniaApp.GetApp();
             var mainWindow = AvaloniaApp.GetMainWindow();
 
-            string? rez5 = "0";
+            string? rez5 = "nulla";
 
             await Task.Delay(100);
 
@@ -158,7 +158,7 @@ namespace UITestsForRomanNumbersCalculator
             var app = AvaloniaApp.GetApp();
             var mainWindow = AvaloniaApp.GetMainWindow();
 
-            string? rez6 = "2500";
+            string? rez6 = "MMD";
 
             await Task.Delay(100);
 
@@ -191,7 +191,7 @@ namespace UITestsForRomanNumbersCalculator
             var app = AvaloniaApp.GetApp();
             var mainWindow = AvaloniaApp.GetMainWindow();
 
-            string? rez7 = "1";
+            string? rez7 = "I";
 
             await Task.Delay(100);
 
