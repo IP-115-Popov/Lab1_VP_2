@@ -51,7 +51,7 @@ namespace UITestsForRomanNumbersCalculator
 
             var textBoxText = textBox.Text as string;
 
-            Assert.True(cc == null);
+            Assert.True(cc == textBoxText);
         }
     }
 }
