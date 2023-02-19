@@ -53,7 +53,7 @@ namespace RomanNumbersCalculator.ViewModels
             ch.Push(aF2);
             if (op.Count != 0 && ch.Count >= 2)
             {
-                if (op.Peek() == "*" || op.Peek() == "/" || op.Peek() == "+" || op.Peek() == "+")
+                if (op.Peek() == "*" || op.Peek() == "/" || op.Peek() == "+" || op.Peek() == "-")
                 {
                     int? a1 = ch.Pop();
                     int? a2 = ch.Pop();
@@ -64,7 +64,7 @@ namespace RomanNumbersCalculator.ViewModels
                             ch.Push(aF2);
                             break;
                         case "-":
-                            aF2 = a1 - a2;
+                            aF2 = a2 - a1;
                             ch.Push(aF2);
                             break;
                         case "*":
@@ -72,7 +72,7 @@ namespace RomanNumbersCalculator.ViewModels
                             ch.Push(aF2);
                             break;
                         case "/":
-                            aF2 = a1 / a2;
+                            aF2 = a2 / a1;
                             ch.Push(aF2);
                             break;
                         default:
