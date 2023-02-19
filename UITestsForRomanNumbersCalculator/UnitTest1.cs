@@ -184,7 +184,39 @@ namespace UITestsForRomanNumbersCalculator
             var textBoxText = textBox.Text as string;
 
             Assert.True(rez6 == textBoxText);
+        }
+        [Fact]
+        public async void TestDivide()
+        {
+            var app = AvaloniaApp.GetApp();
+            var mainWindow = AvaloniaApp.GetMainWindow();
 
+            string? rez7 = "1";
+
+            await Task.Delay(100);
+
+            var buttonFifty = mainWindow.GetVisualDescendants().OfType<Button>().First(b => b.Name == "ButtonFifty");
+            var buttonDivide = mainWindow.GetVisualDescendants().OfType<Button>().First(b => b.Name == "ButtonDivide");
+            var buttonEquals = mainWindow.GetVisualDescendants().OfType<Button>().First(b => b.Name == "ButtonEquals");
+            var buttonClin = mainWindow.GetVisualDescendants().OfType<Button>().First(b => b.Name == "ButtonClin");
+
+            var textBox = mainWindow.GetVisualDescendants().OfType<TextBox>().First();
+            textBox.Text = null;
+            buttonClin.Command.Execute(buttonClin.CommandParameter);
+            await Task.Delay(50);
+
+            buttonFifty.Command.Execute(buttonFifty.CommandParameter);
+            await Task.Delay(50);
+            buttonDivide.Command.Execute(buttonDivide.CommandParameter);
+            await Task.Delay(50);
+            buttonFifty.Command.Execute(buttonFifty.CommandParameter);
+            await Task.Delay(50);
+            buttonEquals.Command.Execute(buttonEquals.CommandParameter);
+            await Task.Delay(50);
+
+            var textBoxText = textBox.Text as string;
+
+            Assert.True(rez7 == textBoxText);
         }
     }
 }
