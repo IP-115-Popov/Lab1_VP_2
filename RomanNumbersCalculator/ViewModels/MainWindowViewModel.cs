@@ -82,6 +82,49 @@ namespace RomanNumbersCalculator.ViewModels
             }
             op.Push(opF2);
         }
+        private string? ConvertIntToRoman(int? ab)
+        {
+            string? rez = null;
+            while (ab > 0)
+            {
+                if (ab - 1000 >= 0)
+                {
+                    rez += "M";
+                    ab -= 1000;
+                }
+                else if (ab - 500 >= 0)
+                {
+                    rez += "D";
+                    ab -= 500;
+                }
+                else if (ab - 100 >= 0)
+                {
+                    rez += "C";
+                    ab -= 100;
+                }
+                else if (ab - 50 >= 0)
+                {
+                    rez += "L";
+                    ab -= 50;
+                }
+                else if (ab - 10 >= 0)
+                {
+                    rez += "X";
+                    ab -= 10;
+                }
+                else if (ab - 5 >= 0)
+                {
+                    rez += "V";
+                    ab -= 5;
+                }
+                else
+                {
+                    rez += "I";
+                    ab -= 1;
+                }
+            }
+            return rez;
+        }
         public void ClickButton(string? argument)
         {
             switch (argument)
@@ -155,8 +198,8 @@ namespace RomanNumbersCalculator.ViewModels
                     pa = null;
                     f2(a, "/");
                     f(50);
-
-                    Equation = Convert.ToString(ch.Pop());
+                    Equation = ConvertIntToRoman(ch.Pop());
+                    //Equation = Convert.ToString(ch.Pop());
                     ch.Clear();
                     op.Clear();
                     a = null;
