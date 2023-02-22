@@ -116,6 +116,7 @@ namespace UITestsForRomanNumbersCalculator
             var textBoxText = textBox.Text as string;
 
             Assert.True(rez4 == textBoxText);
+
         }
         [Fact]
         public async void TestMinus()
